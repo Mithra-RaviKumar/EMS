@@ -1,26 +1,26 @@
-/* Global box-sizing */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Body styles */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
   color: #333;
   height: 100vh;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden; 
 }
 
-/* App container to keep everything flex if needed */
+
 .app-container {
   display: flex;
   height: 100vh;
 }
 
-/* Sidebar styles */
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -55,7 +55,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 700;
-  color: #007bff; /* Bright blue heading */
+  color: #007bff; 
   letter-spacing: 1.2px;
   user-select: none;
 }
@@ -90,7 +90,7 @@ body {
   box-shadow: 0 0 10px #3399ff88;
 }
 
-.sidebar a.active, /* you can add 'active' class on current page link */
+.sidebar a.active, 
 .sidebar a:focus {
   color: white;
   background-color: #0056b3;
@@ -114,7 +114,7 @@ body {
 
 
 
-/* Scrollbar for sidebar if content grows */
+
 .sidebar::-webkit-scrollbar {
   width: 6px;
 }
@@ -124,7 +124,7 @@ body {
   border-radius: 3px;
 }
 
-/* Make sure icons (if any) inside sidebar links align nicely */
+
 .sidebar a svg {
   vertical-align: middle;
   margin-right: 8px;
@@ -149,7 +149,7 @@ body {
   text-align: right;
 }
 
-/* Main content shifts based on sidebar state */
+
 .main-content {
   transition: margin-left 0.3s ease;
   padding: 20px;
@@ -158,14 +158,13 @@ body {
 }
 
 .main-content.sidebar-open {
-  margin-left: 220px; /* same as sidebar width */
+  margin-left: 220px; 
 }
 
 .main-content.sidebar-closed {
-  margin-left: 60px; /* collapsed sidebar width */
+  margin-left: 60px; 
 }
 
-/* Scrollbar hidden for neatness */
 .main-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -175,11 +174,11 @@ body {
   border-radius: 4px;
 }
 
-/* Basic table styling for ViewEmployees */
+
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #222831; /* Dark background for table */
+  background: #222831; 
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
   border-radius: 8px;
   overflow: hidden;
@@ -195,7 +194,7 @@ th, td {
 }
 
 th {
-  background-color: #007bff; /* Blue header */
+  background-color: #007bff; 
   color: white;
   font-weight: 700;
   text-transform: uppercase;
@@ -203,15 +202,15 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #2a2f36; /* Slightly lighter row */
+  background-color: #2a2f36; 
 }
 
 tr:hover {
-  background-color: #3399ff33; /* Light blue hover */
+  background-color: #3399ff33; 
   cursor: pointer;
 }
 
-/* Forms styling (add/edit/delete pages) */
+
 input, button {
   padding: 12px 16px;
   margin: 10px 0;
@@ -245,7 +244,7 @@ button:hover {
   box-shadow: 0 6px 15px rgba(0, 86, 179, 0.6);
 }
 
-/* Messages below forms */
+
 p {
   margin-top: 10px;
   color: #27ae60;

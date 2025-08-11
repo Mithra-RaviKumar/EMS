@@ -2,13 +2,13 @@ import { useState } from "react";
 import { updateEmployee } from "../api";
 import '../PageContainer.css';
 export default function EditEmployee() {
-  const [employeeID, setEmployeeID] = useState(""); // renamed to match usage
+  const [employeeID, setEmployeeID] = useState(""); 
   const [position, setPosition] = useState("");
   const [salary, setSalary] = useState("");
   const [message, setMessage] = useState("");
 
   const handleUpdate = async () => {
-    const res = await updateEmployee(employeeID, { position, salary }); // now matches state name
+    const res = await updateEmployee(employeeID, { position, salary }); 
     setMessage(res.message || "Employee updated successfully!");
   };
 
