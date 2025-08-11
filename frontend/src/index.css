@@ -1,0 +1,257 @@
+/* Global box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  height: 100vh;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* App container to keep everything flex if needed */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #1f1f1f;
+  color: white;
+  padding: 20px 15px;
+  overflow: hidden;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  box-shadow: inset -3px 0 8px rgba(0, 123, 255, 0.4);
+  border-right: 2px solid transparent;
+}
+
+.sidebar.open {
+  width: 220px;
+  border-right-color: #007bff;
+}
+
+.sidebar.closed {
+  width: 60px;
+  padding: 20px 10px;
+  border-right-color: transparent;
+  box-shadow: none;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  color: #007bff; /* Bright blue heading */
+  letter-spacing: 1.2px;
+  user-select: none;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.sidebar ul li {
+  margin-bottom: 18px;
+}
+
+.sidebar a {
+  color: #a0b9ff;
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+  user-select: none;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+  background-color: #007bff;
+  padding-left: 20px;
+  box-shadow: 0 0 10px #3399ff88;
+}
+
+.sidebar a.active, /* you can add 'active' class on current page link */
+.sidebar a:focus {
+  color: white;
+  background-color: #0056b3;
+  padding-left: 20px;
+  box-shadow: 0 0 12px #3399ffcc;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-bottom: 25px;
+  outline: none;
+  width: 100%;
+  text-align: right;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+
+
+/* Scrollbar for sidebar if content grows */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #3399ff88;
+  border-radius: 3px;
+}
+
+/* Make sure icons (if any) inside sidebar links align nicely */
+.sidebar a svg {
+  vertical-align: middle;
+  margin-right: 8px;
+  fill: #a0b9ff;
+  transition: fill 0.3s ease;
+}
+
+.sidebar a:hover svg,
+.sidebar a.active svg {
+  fill: white;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  outline: none;
+  width: 100%;
+  text-align: right;
+}
+
+/* Main content shifts based on sidebar state */
+.main-content {
+  transition: margin-left 0.3s ease;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content.sidebar-open {
+  margin-left: 220px; /* same as sidebar width */
+}
+
+.main-content.sidebar-closed {
+  margin-left: 60px; /* collapsed sidebar width */
+}
+
+/* Scrollbar hidden for neatness */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+/* Basic table styling for ViewEmployees */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #222831; /* Dark background for table */
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+}
+
+th, td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #333;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+th {
+  background-color: #007bff; /* Blue header */
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+  background-color: #2a2f36; /* Slightly lighter row */
+}
+
+tr:hover {
+  background-color: #3399ff33; /* Light blue hover */
+  cursor: pointer;
+}
+
+/* Forms styling (add/edit/delete pages) */
+input, button {
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #007bff;
+  font-size: 1rem;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #3399ff;
+  outline: none;
+  background-color: #292f36;
+  color: #fff;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0, 86, 179, 0.6);
+}
+
+/* Messages below forms */
+p {
+  margin-top: 10px;
+  color: #27ae60;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
