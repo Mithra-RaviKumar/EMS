@@ -101,7 +101,6 @@
 }
 
 .home-features li::before {
-  content: "✔";
   position: absolute;
   left: 0;
   color: #00c6ff;
