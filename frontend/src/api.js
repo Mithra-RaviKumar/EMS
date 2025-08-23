@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000/api/employees";
+const API_BASE = "https://ems-backend-zz5h.onrender.com/api/employees";
 
 export async function getEmployees() {
   const res = await fetch(API_BASE);
